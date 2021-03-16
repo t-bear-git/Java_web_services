@@ -14,22 +14,22 @@ public class CalculateController {
 	}
 	
 	@GetMapping("/add")
-	public float add(float first, float sec) {
+	public double add(double first, double sec) {
 		System.out.println(first + sec);
 		return first + sec;
 	}
 	@GetMapping("/subt")
-	public float subt(float first, float sec) {
+	public double subt(double first, double sec) {
 		System.out.println(first - sec);
 		return first - sec;
 	}
 	@GetMapping("/mult")
-	public float mult(float first, float sec) {
+	public double mult(double first, double sec) {
 		System.out.println(first * sec);
 		return first * sec;
 	}
 	@GetMapping("/div")
-	public float div(float first, float sec) {
+	public double div(double first, double sec) {
 		System.out.println(first / sec);
 		return first / sec;
 	}
