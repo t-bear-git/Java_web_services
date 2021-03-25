@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,10 +29,16 @@ public class Controller {
 	
 	// GET request to http://localhost:8080/rps/score to view the current score.
 	@RequestMapping(value = "/rps/score", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String getResultBean() {
+	public String getScore() {
 		String pattern = "{ \"Player 1 Score\":\"%s\", \"Player 2 Score\":\"%s\", \"Tied rounds\": \"%s\"}";
 		return String.format(pattern, ResultBean.player1_Wins, ResultBean.player2_Wins, ResultBean.ties);
 
+	}
+	
+	// GET request to http://localhost:8080/rps/results to history of played rounds.
+	@RequestMapping(value = "/rps/results", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ArrayList<ResultBean> getResults() {
+		return Game.savedRounds;
 	}
 	
 
